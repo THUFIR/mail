@@ -1,5 +1,6 @@
 package net.bounceme.dur.mail;
 
+import java.io.IOException;
 import static java.lang.System.out;
 import javax.mail.MessagingException;
 
@@ -7,16 +8,16 @@ public class Mail {
 
     private MailClient mailClient = new MailClient("hawat", "localhost");
 
-    public static void main(String[] args) throws MessagingException {
+    public static void main(String[] args) throws MessagingException, IOException, InterruptedException {
         Mail mail = new Mail();
-        mail.dummyMessage();
     }
 
-    public Mail() {
+    public Mail() throws MessagingException, IOException, InterruptedException {
+        dummyMessage();
     }
 
     private void dummyMessage() throws MessagingException {
-        mailClient.sendMessage("thufir", "hello world", "hello world content yet again");
+        mailClient.sendMessage("thufir@localhost", "hello world", "hello world content yet again");
         out.println("sent message");
     }
 }

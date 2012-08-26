@@ -6,7 +6,6 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
 
-
 public class MailClient
         extends Authenticator {
 
@@ -41,11 +40,9 @@ public class MailClient
         return authentication;
     }
 
-    public void sendMessage(
-            String to, String subject, String content)
+    public void sendMessage(String to, String subject, String content)
             throws MessagingException {
-        System.out.println("SENDING message from " + from + " to " + to);
-        System.out.println();
+        out.println("SENDING message from " + from + " to " + to);
         MimeMessage msg = new MimeMessage(session);
         msg.addRecipients(Message.RecipientType.TO, to);
         msg.setSubject(subject);
